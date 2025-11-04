@@ -1,0 +1,33 @@
+---
+- name: Deploy Employee Registration Form Container
+  hosts: empapplication
+  become: true
+
+  tasks:
+    - name: Copy app files to server
+      copy:
+        src: "{{ item }}"
+        dest: /home/ubuntu/
+      with_items:
+        - index.html
+        - style.css
+        - Dockerfile
+
+    - name: Build Docker image
+      command: docker build -t empform:latest /home/ubuntu
+
+    - name: Stop any running container (if exists)
+      shell: |
+        docker stop empform || true
+        docker rm empform || true
+
+    - name: Run Docker container
+      command: docker run -d --name empform -p 80:80 empform:latest
+
+    - name: Verify running container
+      command: docker ps
+      register: docker_ps
+
+    - name: Show running containers
+      debug:
+        msg: "{{ docker_ps.stdout_lines }}"
