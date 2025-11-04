@@ -3,8 +3,7 @@ name: Deploy EmpApplication to AWS EC2
 on:
   push:
     branches:
-      - main    # Trigger pipeline only when code is pushed to main branch
-
+      - main   
 jobs:
   deploy:
     name: Build and Deploy Employee Application
