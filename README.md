@@ -1,1 +1,2 @@
-# EmpForm
+This project demonstrates the automation of cloud infrastructure setup, configuration management, container deployment, and CI/CD integration using modern DevOps tools. The objective is to host a sample web application on an AWS EC2 instance by integrating Terraform for infrastructure provisioning, Ansible for configuration management, Docker for containerization, and GitHub Actions for continuous deployment.
+The entire workflow eliminates manual effort and ensures faster, more reliable deployments with consistent infrastructure. The deliverables include Terraform scripts, Ansible playbooks, a Dockerized web form application, and a CI/CD pipeline configuration that automates deployment when new code is pushed.
