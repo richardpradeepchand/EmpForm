@@ -18,6 +18,7 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.EMP_APP_SSH_KEY }}
 
+
       - name: Transfer application files to EC2
         run: |
           echo "Copying Docker resources to EC2 instance..."
